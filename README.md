@@ -13,30 +13,15 @@ p2pspider 是一个 DHT 爬虫 + BT 客户端的结合体, 从全球 DHT 网络�
 
 ```
 git clone https://github.com/Fuck-You-GFW/p2pspider
+cd p2pspider
+npm install
 ```
 
 ## 使用
 使用前, 请确保你的 `node` 版本 `>=0.12.0`.
 
-```js
-'use strict';
-var p2pspider = require('../lib/index');
-p2pspider(
-    {
-        address: '0.0.0.0',
-        port: 6881,
-        nodesMaxSize: 200,   // be careful
-        maxConnections: 400, // be careful
-        timeout: 5000,
-        filter: function(infohash, callback) {
-            var theInfohashIsExistsInDatabase = false; // false => always to download the metadata even though the metadata is exists.
-            callback(theInfohashIsExistsInDatabase);
-        }
-    },
-    function(metadata) {
-        console.log(metadata);
-    }
-);
+```
+node example.js
 ```
 
 **目前只能放在有公网 IP 的主机上执行, 或者路由器设置端口转发.**
